@@ -6,12 +6,18 @@
     <meta charset="utf-8" />
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="{% static 'vis/vis.min.css' %}" type = "text/css"/>
+    <script type="text/javascript" src="{% static 'vis/vis.min.js' %}"></script>
     <meta name="viewport" content = "width=device-width, initial-scale=1.0">
 
     <style type="text/css">
         html,
         body {
             height:100%
+        }
+        #mynetwork {
+            width: 1300px;
+            height: 800px;
         }
     </style>
 </head>
@@ -32,7 +38,45 @@
             </div>
         </nav>
     </header>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-md-auto">
+                <div id="mynetwork"></div>
+            </div>
+        </div>
+    </div>
 
+    <script type="text/javascript">
+        // create an array with nodes
+        var nodes = new vis.DataSet([
+            {id: 1, label: 'Node 1'},
+            {id: 2, label: 'Node 2'},
+            {id: 3, label: 'Node 3'},
+            {id: 4, label: 'Node 4'},
+            {id: 5, label: 'Node 5'}
+        ]);
+
+        // create an array with edges
+        var edges = new vis.DataSet([
+            {from: 1, to: 3},
+            {from: 1, to: 2},
+            {from: 2, to: 4},
+            {from: 2, to: 5}
+        ]);
+
+        // create a network
+        var container = document.getElementById('mynetwork');
+
+        // provide the data in the vis format
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+        var options = {};
+
+        // initialize your network!
+        var network = new vis.Network(container, data, options);
+    </script>
     <footer>
         by Juliane Fink
     </footer>
