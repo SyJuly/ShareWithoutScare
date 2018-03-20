@@ -7,4 +7,4 @@ def index(request):
     return render(request, 'home.html')
 
 def friends(request):
-    return render(request, 'friends.html', {'friends': ['Vanessa','Lina']})
+    return render(request, 'friends.html')

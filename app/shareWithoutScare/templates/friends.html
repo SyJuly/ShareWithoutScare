@@ -2,8 +2,9 @@
 
 {% block content %}
 
-    {% for f in friends %}
-        <p>{{f}}</p>
+    {% for friend in object_list %}
+        <p>{{ friend.name }}</p>
+        <p>{{ friend.date|date:"Y-m-d" }}<a href="/friend/{{friend.id}}">{{friend.title}}</a></p>
     {% endfor %}
 
 {% endblock %}
