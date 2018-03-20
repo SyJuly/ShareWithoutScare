@@ -1,0 +1,8 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <h3>{{ friend.name }}</h3>
+    <h4>{{friend.title}}</h4>
+    <p>{{ friend.date|date:"Y-m-d" }}</p>
+
+{% endblock %}
